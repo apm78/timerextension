@@ -4,7 +4,7 @@
     <groupId>de.akquinet.engineering.vaadin.timerextension</groupId>
     <artifactId>timerextension-root</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.2.1</version>
     <name>TimerExtension Add-on Root Project</name>
 
     <modules>
@@ -16,7 +16,7 @@
         <url>git://github.com/apm78/timerextension.git</url>
         <connection>scm:git:git://github.com/apm78/timerextension.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:/apm78/timerextension.git</developerConnection>
-        <tag>timerextension-0.2.0</tag>
+        <tag>timerextension-0.2.1</tag>
     </scm>
 
     <build>
