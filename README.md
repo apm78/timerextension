@@ -18,8 +18,12 @@ To see the demo, navigate to http://localhost:8080/
 
 ## Release notes
 
-### Version 0.1.0
+### Version 0.2.0
 - Ported from Vaadin 7 to Vaadin 8.
+
+### Version 0.1.0
+- Initial version
+- Polling can be bound to components. Polling is automatically disabled on detach.
 
 ## Issue tracking
 
