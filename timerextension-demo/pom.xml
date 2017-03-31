@@ -4,7 +4,7 @@
     <groupId>de.akquinet.engineering.vaadin.timerextension</groupId>
     <artifactId>timerextension-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.2.0</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>TimerExtension Add-on Demo</name>
 
     <properties>
