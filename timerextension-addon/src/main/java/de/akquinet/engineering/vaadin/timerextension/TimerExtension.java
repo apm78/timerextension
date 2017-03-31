@@ -1,11 +1,13 @@
 package de.akquinet.engineering.vaadin.timerextension;
 
 import com.vaadin.annotations.JavaScript;
+import com.vaadin.event.ConnectorEvent;
 import com.vaadin.server.AbstractClientConnector;
 import com.vaadin.server.AbstractJavaScriptExtension;
 import com.vaadin.ui.JavaScriptFunction;
 import elemental.json.JsonArray;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,23 +19,21 @@ public class TimerExtension extends AbstractJavaScriptExtension
 {
     private static final long serialVersionUID = 3285441855446400186L;
 
-    public interface TimerListener
+    public interface TimerListener extends Serializable
     {
         void timeout(final TimerEvent timerEvent);
     }
 
-    public static class TimerEvent
+    public static class TimerEvent extends ConnectorEvent
     {
-        private final TimerExtension source;
-
         public TimerEvent(final TimerExtension source)
         {
-            this.source = source;
+            super(source);
         }
 
-        public TimerExtension getSource()
+        public TimerExtension getTimerExtension()
         {
-            return source;
+            return (TimerExtension) getSource();
         }
     }
 
@@ -49,7 +49,7 @@ public class TimerExtension extends AbstractJavaScriptExtension
         }
 
         @Override
-        public void detach(final DetachEvent detachEvent)
+        public void detach(final DetachEvent event)
         {
             timerExtension.stop();
         }
@@ -82,13 +82,23 @@ public class TimerExtension extends AbstractJavaScriptExtension
 
     private final List<TimerListener> timerListeners = new ArrayList<TimerListener>();
 
-    public TimerExtension(final AbstractClientConnector target)
+    protected TimerExtension()
     {
-        super(target);
+    }
+
+    protected void init(final AbstractClientConnector target)
+    {
         addDetachListener(new TimerDetachListener(this));
         extend(target);
 
         addFunction("timeout", new TimeoutJavaScriptFunction(this));
+    }
+
+    public static TimerExtension create(final AbstractClientConnector target)
+    {
+        final TimerExtension timerExtension = new TimerExtension();
+        timerExtension.init(target);
+        return timerExtension;
     }
 
     private void triggerNextInterval()

@@ -1,7 +1,7 @@
-# TimerExtension Add-on for Vaadin 7
+# TimerExtension Add-on for Vaadin 8
 
 A Vaadin add-on that enables component-based polling.
-TimerExtension is a UI component add-on for Vaadin 7.
+TimerExtension is a UI component add-on for Vaadin 8.
 
 ## Download release
 
@@ -19,8 +19,7 @@ To see the demo, navigate to http://localhost:8080/
 ## Release notes
 
 ### Version 0.1.0
-- Initial version
-- Polling can be bound to components. Polling is automatically disabled on detach.
+- Ported from Vaadin 7 to Vaadin 8.
 
 ## Issue tracking
 
