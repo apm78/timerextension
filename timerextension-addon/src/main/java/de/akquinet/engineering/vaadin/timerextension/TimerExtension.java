@@ -71,7 +71,7 @@ public class TimerExtension extends AbstractJavaScriptExtension
         {
             if (timerExtension.isStarted())
             {
-                for (TimerListener listener : timerExtension.timerListeners)
+                for (final TimerListener listener : timerExtension.timerListeners)
                 {
                     listener.timeout(new TimerEvent(timerExtension));
                 }

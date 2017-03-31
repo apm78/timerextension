@@ -17,7 +17,7 @@ window.de_akquinet_engineering_vaadin_timerextension_TimerExtension = function (
             clearTimeout(intervalId);
             intervalId = null;
         }
-    }
+    };
 
     var restartImpl = function () {
         stopImpl();
@@ -32,11 +32,11 @@ window.de_akquinet_engineering_vaadin_timerextension_TimerExtension = function (
                 connector.timeout();
             }, intervalInMs);
         }
-    }
+    };
 
     connector.triggerNextInterval = function () {
         restartImpl();
-    }
+    };
 
     connector.onStateChange = function () {
         enabled = this.getState().enabled;
@@ -50,7 +50,7 @@ window.de_akquinet_engineering_vaadin_timerextension_TimerExtension = function (
             || !started){
             stopImpl();
         }
-    }
+    };
 
 
 };
